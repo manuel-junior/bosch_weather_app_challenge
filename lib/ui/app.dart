@@ -12,10 +12,19 @@ class App extends StatelessWidget {
       final colors = ref.watch(colorsProvider).value;
 
       return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Weather App',
         theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            backgroundColor: colors!.background,
+            titleTextStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 18,
+            ),
+          ),
+          dividerColor: colors.divider,
           colorScheme: ColorScheme.fromSeed(
-            background: colors!.background,
+            background: colors.background,
             seedColor: colors.background,
           ),
           useMaterial3: true,
