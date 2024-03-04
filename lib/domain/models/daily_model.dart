@@ -1,3 +1,4 @@
+import 'package:bosch_weather_app_challenge/domain/models/weather_conditions_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'daily_model.freezed.dart';
@@ -6,7 +7,7 @@ part 'daily_model.freezed.dart';
 class DailyModel with _$DailyModel {
   const factory DailyModel({
     required List<DateTime> time,
-    required List<int> weatherCode,
+    required List<WeatherConditionModel> weatherConditions,
     required List<double> temperature2MMax,
     required List<double> temperature2MMin,
     required List<DateTime> sunrise,
@@ -23,9 +24,9 @@ class DailyModel with _$DailyModel {
         json['time'],
         (e) => DateTime.parse(e.toString()),
       ),
-      weatherCode: parseList<int>(
+      weatherConditions: parseList<WeatherConditionModel>(
         json['weather_code'],
-        (e) => int.parse(e.toString()),
+        (e) => WeatherConditionModel.fromCode(int.parse(e.toString())),
       ),
       temperature2MMax: parseList<double>(
         json['temperature_2m_max'],
