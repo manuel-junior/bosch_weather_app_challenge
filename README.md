@@ -1,16 +1,24 @@
-# bosch_weather_app_challenge
+# Bosch weather App Challenge
 
-A new Flutter project.
+## Description
 
-## Getting Started
+This is a very simple weather app, that shows a few meteorological data about the past 7 and the
+next 3 days.
 
-This project is a starting point for a Flutter application.
+### Libraries used in this project:
 
-A few resources to get you started if this is your first Flutter project:
+- [Http](https://pub.dev/packages/http)
+- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod)
+- [Riverpod Annotation](https://pub.dev/packages/riverpod_annotation)
+- [Freezed Annotation](https://pub.dev/packages/freezed_annotation)
+- [Freezed](https://pub.dev/packages/freezed)
+- [Flutter SVG](https://pub.dev/packages/flutter_svg)
+- [Collection](https://pub.dev/packages/collection)
+- [Mokito](https://pub.dev/packages/mockito)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For more about Flutter , visit [flutter.dev](https://flutter.dev).
+
+
+## Home Page
+![Home Page](home_page.png)

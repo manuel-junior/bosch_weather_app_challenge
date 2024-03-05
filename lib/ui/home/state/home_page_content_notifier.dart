@@ -34,6 +34,7 @@ class HomePageContentNotifier extends _$HomePageContentNotifier {
             final sunset = daily.sunset.elementAtOrNull(index);
             final uvIndexMax = daily.uvIndexMax.elementAtOrNull(index);
 
+            index += 1;
             if (weatherCondition != null &&
                 temperatureMax != null &&
                 temperatureMin != null &&
@@ -52,7 +53,6 @@ class HomePageContentNotifier extends _$HomePageContentNotifier {
                 weatherCondition: weatherCondition,
               );
             }
-            index += 1;
           })
           .whereNotNull()
           .toList();
