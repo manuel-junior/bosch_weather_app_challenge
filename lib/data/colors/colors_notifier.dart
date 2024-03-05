@@ -6,10 +6,10 @@ import 'package:bosch_weather_app_challenge/domain/domain.dart'
     show ColorsModel;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'colors.g.dart';
+part 'colors_notifier.g.dart';
 
 @riverpod
-class Colors extends _$Colors {
+class ColorsNotifier extends _$ColorsNotifier {
   @override
   Future<ColorsModel> build() async {
     debugPrint('Colors initialization');

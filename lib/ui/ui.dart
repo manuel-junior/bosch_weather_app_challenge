@@ -1,2 +1,3 @@
 export 'app.dart';
-export 'app_start_up/app_start_up.dart';
+export 'splash_screen/splash_screen.dart';
+export 'home/home.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:bosch_weather_app_challenge/data/data.dart' show colorsProvider;
+import 'package:bosch_weather_app_challenge/data/data.dart'
+    show colorsNotifierProvider;
 import 'home/home.dart' show HomePage;
 
 class App extends StatelessWidget {
@@ -9,12 +10,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (_, ref, widget) {
-      final colors = ref.watch(colorsProvider).value;
+      final colors = ref.watch(colorsNotifierProvider).value;
 
       return MaterialApp(
         title: 'Weather App',
         theme: ThemeData(
           appBarTheme: AppBarTheme(
+            elevation: 0.0,
             backgroundColor: colors!.background,
             titleTextStyle: const TextStyle(
               fontWeight: FontWeight.bold,
@@ -22,12 +24,20 @@ class App extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          dividerColor: colors.divider,
-          colorScheme: ColorScheme.fromSeed(
-            background: colors.background,
-            seedColor: colors.background,
+          textTheme: const TextTheme(
+            displayLarge: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            displayMedium: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
-          useMaterial3: true,
+          dividerColor: colors.divider,
+          useMaterial3: false,
         ),
         home: const HomePage(),
       );

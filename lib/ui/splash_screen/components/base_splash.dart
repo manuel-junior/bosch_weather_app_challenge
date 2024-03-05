@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AppLoadingWidget extends StatelessWidget {
-  const AppLoadingWidget({super.key});
+class BaseSplash extends StatelessWidget {
+  final Widget child;
+  const BaseSplash({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Loading'),
+          child: child,
         ),
       ),
     );

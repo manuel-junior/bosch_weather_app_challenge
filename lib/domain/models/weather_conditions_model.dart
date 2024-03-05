@@ -9,6 +9,7 @@ class WeatherConditionModel with _$WeatherConditionModel {
     required int code,
     required String descriptionDay,
     required String descriptionNight,
+    required String icon,
   }) = _WeatherConditionModel;
 
   factory WeatherConditionModel.fromCode(int code) {
@@ -17,6 +18,7 @@ class WeatherConditionModel with _$WeatherConditionModel {
       code: code,
       descriptionDay: map["descriptionDay"],
       descriptionNight: map["descriptionNight"],
+      icon: map["icon"],
     );
   }
 }

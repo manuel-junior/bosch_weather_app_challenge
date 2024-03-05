@@ -2,7 +2,8 @@
 Map getWeatherInfoFromCode(int code) {
   switch (code) {
     case 1:
-      return _weatherDescription(code, "Mainly Sunny", "Mainly Clear");
+      return _weatherDescription(
+          code, "Mainly Sunny", "Mainly Clear", "sun.svg");
     case 2:
       return _weatherDescription(code, "Partly Cloudy", "Partly Cloudy");
     case 45:
@@ -21,16 +22,19 @@ Map getWeatherInfoFromCode(int code) {
     case 57:
       return _weatherDescription(code, "Freezing Drizzle", "Freezing Drizzle");
     case 61:
-      return _weatherDescription(code, "Light Rain", "Light Rain");
-    case 63:
-      return _weatherDescription(code, "Rain", "Rain");
-    case 65:
-      return _weatherDescription(code, "Heavy Rain", "Heavy Rain");
-    case 66:
       return _weatherDescription(
-          code, "Light Freezing Rain", "Light Freezing Rain");
+          code, "Light Rain", "Light Rain", "weather-rain.svg");
+    case 63:
+      return _weatherDescription(code, "Rain", "Rain", "weather-rain.svg");
+    case 65:
+      return _weatherDescription(
+          code, "Heavy Rain", "Heavy Rain", "weather-rain.svg");
+    case 66:
+      return _weatherDescription(code, "Light Freezing Rain",
+          "Light Freezing Rain", "weather-rain.svg");
     case 67:
-      return _weatherDescription(code, "Freezing Rain", "Freezing Rain");
+      return _weatherDescription(
+          code, "Freezing Rain", "Freezing Rain", "weather-rain.svg");
     case 71:
       return _weatherDescription(code, "Light Snow", "Light Snow");
     case 73:
@@ -42,9 +46,11 @@ Map getWeatherInfoFromCode(int code) {
     case 80:
       return _weatherDescription(code, "Light Showers", "Light Showers");
     case 81:
-      return _weatherDescription(code, "Showers", "Showers");
+      return _weatherDescription(
+          code, "Showers", "Showers", "weather-rain.svg");
     case 82:
-      return _weatherDescription(code, "Heavy Showers", "Heavy Showers");
+      return _weatherDescription(
+          code, "Heavy Showers", "Heavy Showers", "weather-rain.svg");
     case 85:
       return _weatherDescription(
           code, "Light Snow Showers", "Light Snow Showers");
@@ -59,10 +65,15 @@ Map getWeatherInfoFromCode(int code) {
       return _weatherDescription(
           code, "Thunderstorm With Hail", "Thunderstorm With Hail");
     default:
-      return _weatherDescription(code, "Sunny", "Clear");
+      return _weatherDescription(code, "Sunny", "Clear", "sun.svg");
   }
 }
 
-_weatherDescription(int code, String day, String night) {
-  return {"code": code, "descriptionDay": day, "descriptionNight": night};
+_weatherDescription(int code, String day, String night, [String? icon]) {
+  return {
+    "code": code,
+    "descriptionDay": day,
+    "descriptionNight": night,
+    "icon": "assets/icons/${icon ?? "cloud.svg"}"
+  };
 }

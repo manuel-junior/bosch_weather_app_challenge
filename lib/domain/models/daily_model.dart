@@ -8,6 +8,7 @@ class DailyModel with _$DailyModel {
   const factory DailyModel({
     required List<DateTime> time,
     required List<WeatherConditionModel> weatherConditions,
+    required List<double> uvIndexMax,
     required List<double> temperature2MMax,
     required List<double> temperature2MMin,
     required List<DateTime> sunrise,
@@ -30,6 +31,10 @@ class DailyModel with _$DailyModel {
       ),
       temperature2MMax: parseList<double>(
         json['temperature_2m_max'],
+        (e) => double.parse(e.toString()),
+      ),
+      uvIndexMax: parseList<double>(
+        json['uv_index_max'],
         (e) => double.parse(e.toString()),
       ),
       temperature2MMin: parseList<double>(

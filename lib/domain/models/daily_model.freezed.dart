@@ -19,6 +19,7 @@ mixin _$DailyModel {
   List<DateTime> get time => throw _privateConstructorUsedError;
   List<WeatherConditionModel> get weatherConditions =>
       throw _privateConstructorUsedError;
+  List<double> get uvIndexMax => throw _privateConstructorUsedError;
   List<double> get temperature2MMax => throw _privateConstructorUsedError;
   List<double> get temperature2MMin => throw _privateConstructorUsedError;
   List<DateTime> get sunrise => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ abstract class $DailyModelCopyWith<$Res> {
   $Res call(
       {List<DateTime> time,
       List<WeatherConditionModel> weatherConditions,
+      List<double> uvIndexMax,
       List<double> temperature2MMax,
       List<double> temperature2MMin,
       List<DateTime> sunrise,
@@ -59,6 +61,7 @@ class _$DailyModelCopyWithImpl<$Res, $Val extends DailyModel>
   $Res call({
     Object? time = null,
     Object? weatherConditions = null,
+    Object? uvIndexMax = null,
     Object? temperature2MMax = null,
     Object? temperature2MMin = null,
     Object? sunrise = null,
@@ -73,6 +76,10 @@ class _$DailyModelCopyWithImpl<$Res, $Val extends DailyModel>
           ? _value.weatherConditions
           : weatherConditions // ignore: cast_nullable_to_non_nullable
               as List<WeatherConditionModel>,
+      uvIndexMax: null == uvIndexMax
+          ? _value.uvIndexMax
+          : uvIndexMax // ignore: cast_nullable_to_non_nullable
+              as List<double>,
       temperature2MMax: null == temperature2MMax
           ? _value.temperature2MMax
           : temperature2MMax // ignore: cast_nullable_to_non_nullable
@@ -104,6 +111,7 @@ abstract class _$$DailyModelImplCopyWith<$Res>
   $Res call(
       {List<DateTime> time,
       List<WeatherConditionModel> weatherConditions,
+      List<double> uvIndexMax,
       List<double> temperature2MMax,
       List<double> temperature2MMin,
       List<DateTime> sunrise,
@@ -123,6 +131,7 @@ class __$$DailyModelImplCopyWithImpl<$Res>
   $Res call({
     Object? time = null,
     Object? weatherConditions = null,
+    Object? uvIndexMax = null,
     Object? temperature2MMax = null,
     Object? temperature2MMin = null,
     Object? sunrise = null,
@@ -137,6 +146,10 @@ class __$$DailyModelImplCopyWithImpl<$Res>
           ? _value._weatherConditions
           : weatherConditions // ignore: cast_nullable_to_non_nullable
               as List<WeatherConditionModel>,
+      uvIndexMax: null == uvIndexMax
+          ? _value._uvIndexMax
+          : uvIndexMax // ignore: cast_nullable_to_non_nullable
+              as List<double>,
       temperature2MMax: null == temperature2MMax
           ? _value._temperature2MMax
           : temperature2MMax // ignore: cast_nullable_to_non_nullable
@@ -163,12 +176,14 @@ class _$DailyModelImpl implements _DailyModel {
   const _$DailyModelImpl(
       {required final List<DateTime> time,
       required final List<WeatherConditionModel> weatherConditions,
+      required final List<double> uvIndexMax,
       required final List<double> temperature2MMax,
       required final List<double> temperature2MMin,
       required final List<DateTime> sunrise,
       required final List<DateTime> sunset})
       : _time = time,
         _weatherConditions = weatherConditions,
+        _uvIndexMax = uvIndexMax,
         _temperature2MMax = temperature2MMax,
         _temperature2MMin = temperature2MMin,
         _sunrise = sunrise,
@@ -189,6 +204,14 @@ class _$DailyModelImpl implements _DailyModel {
       return _weatherConditions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_weatherConditions);
+  }
+
+  final List<double> _uvIndexMax;
+  @override
+  List<double> get uvIndexMax {
+    if (_uvIndexMax is EqualUnmodifiableListView) return _uvIndexMax;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_uvIndexMax);
   }
 
   final List<double> _temperature2MMax;
@@ -227,7 +250,7 @@ class _$DailyModelImpl implements _DailyModel {
 
   @override
   String toString() {
-    return 'DailyModel(time: $time, weatherConditions: $weatherConditions, temperature2MMax: $temperature2MMax, temperature2MMin: $temperature2MMin, sunrise: $sunrise, sunset: $sunset)';
+    return 'DailyModel(time: $time, weatherConditions: $weatherConditions, uvIndexMax: $uvIndexMax, temperature2MMax: $temperature2MMax, temperature2MMin: $temperature2MMin, sunrise: $sunrise, sunset: $sunset)';
   }
 
   @override
@@ -238,6 +261,8 @@ class _$DailyModelImpl implements _DailyModel {
             const DeepCollectionEquality().equals(other._time, _time) &&
             const DeepCollectionEquality()
                 .equals(other._weatherConditions, _weatherConditions) &&
+            const DeepCollectionEquality()
+                .equals(other._uvIndexMax, _uvIndexMax) &&
             const DeepCollectionEquality()
                 .equals(other._temperature2MMax, _temperature2MMax) &&
             const DeepCollectionEquality()
@@ -251,6 +276,7 @@ class _$DailyModelImpl implements _DailyModel {
       runtimeType,
       const DeepCollectionEquality().hash(_time),
       const DeepCollectionEquality().hash(_weatherConditions),
+      const DeepCollectionEquality().hash(_uvIndexMax),
       const DeepCollectionEquality().hash(_temperature2MMax),
       const DeepCollectionEquality().hash(_temperature2MMin),
       const DeepCollectionEquality().hash(_sunrise),
@@ -267,6 +293,7 @@ abstract class _DailyModel implements DailyModel {
   const factory _DailyModel(
       {required final List<DateTime> time,
       required final List<WeatherConditionModel> weatherConditions,
+      required final List<double> uvIndexMax,
       required final List<double> temperature2MMax,
       required final List<double> temperature2MMin,
       required final List<DateTime> sunrise,
@@ -276,6 +303,8 @@ abstract class _DailyModel implements DailyModel {
   List<DateTime> get time;
   @override
   List<WeatherConditionModel> get weatherConditions;
+  @override
+  List<double> get uvIndexMax;
   @override
   List<double> get temperature2MMax;
   @override

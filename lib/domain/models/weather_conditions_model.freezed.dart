@@ -19,6 +19,7 @@ mixin _$WeatherConditionModel {
   int get code => throw _privateConstructorUsedError;
   String get descriptionDay => throw _privateConstructorUsedError;
   String get descriptionNight => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherConditionModelCopyWith<WeatherConditionModel> get copyWith =>
@@ -31,7 +32,8 @@ abstract class $WeatherConditionModelCopyWith<$Res> {
           $Res Function(WeatherConditionModel) then) =
       _$WeatherConditionModelCopyWithImpl<$Res, WeatherConditionModel>;
   @useResult
-  $Res call({int code, String descriptionDay, String descriptionNight});
+  $Res call(
+      {int code, String descriptionDay, String descriptionNight, String icon});
 }
 
 /// @nodoc
@@ -51,6 +53,7 @@ class _$WeatherConditionModelCopyWithImpl<$Res,
     Object? code = null,
     Object? descriptionDay = null,
     Object? descriptionNight = null,
+    Object? icon = null,
   }) {
     return _then(_value.copyWith(
       code: null == code
@@ -65,6 +68,10 @@ class _$WeatherConditionModelCopyWithImpl<$Res,
           ? _value.descriptionNight
           : descriptionNight // ignore: cast_nullable_to_non_nullable
               as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -78,7 +85,8 @@ abstract class _$$WeatherConditionModelImplCopyWith<$Res>
       __$$WeatherConditionModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, String descriptionDay, String descriptionNight});
+  $Res call(
+      {int code, String descriptionDay, String descriptionNight, String icon});
 }
 
 /// @nodoc
@@ -96,6 +104,7 @@ class __$$WeatherConditionModelImplCopyWithImpl<$Res>
     Object? code = null,
     Object? descriptionDay = null,
     Object? descriptionNight = null,
+    Object? icon = null,
   }) {
     return _then(_$WeatherConditionModelImpl(
       code: null == code
@@ -110,6 +119,10 @@ class __$$WeatherConditionModelImplCopyWithImpl<$Res>
           ? _value.descriptionNight
           : descriptionNight // ignore: cast_nullable_to_non_nullable
               as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +133,8 @@ class _$WeatherConditionModelImpl implements _WeatherConditionModel {
   const _$WeatherConditionModelImpl(
       {required this.code,
       required this.descriptionDay,
-      required this.descriptionNight});
+      required this.descriptionNight,
+      required this.icon});
 
   @override
   final int code;
@@ -128,10 +142,12 @@ class _$WeatherConditionModelImpl implements _WeatherConditionModel {
   final String descriptionDay;
   @override
   final String descriptionNight;
+  @override
+  final String icon;
 
   @override
   String toString() {
-    return 'WeatherConditionModel(code: $code, descriptionDay: $descriptionDay, descriptionNight: $descriptionNight)';
+    return 'WeatherConditionModel(code: $code, descriptionDay: $descriptionDay, descriptionNight: $descriptionNight, icon: $icon)';
   }
 
   @override
@@ -143,12 +159,13 @@ class _$WeatherConditionModelImpl implements _WeatherConditionModel {
             (identical(other.descriptionDay, descriptionDay) ||
                 other.descriptionDay == descriptionDay) &&
             (identical(other.descriptionNight, descriptionNight) ||
-                other.descriptionNight == descriptionNight));
+                other.descriptionNight == descriptionNight) &&
+            (identical(other.icon, icon) || other.icon == icon));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, code, descriptionDay, descriptionNight);
+      Object.hash(runtimeType, code, descriptionDay, descriptionNight, icon);
 
   @JsonKey(ignore: true)
   @override
@@ -162,7 +179,8 @@ abstract class _WeatherConditionModel implements WeatherConditionModel {
   const factory _WeatherConditionModel(
       {required final int code,
       required final String descriptionDay,
-      required final String descriptionNight}) = _$WeatherConditionModelImpl;
+      required final String descriptionNight,
+      required final String icon}) = _$WeatherConditionModelImpl;
 
   @override
   int get code;
@@ -170,6 +188,8 @@ abstract class _WeatherConditionModel implements WeatherConditionModel {
   String get descriptionDay;
   @override
   String get descriptionNight;
+  @override
+  String get icon;
   @override
   @JsonKey(ignore: true)
   _$$WeatherConditionModelImplCopyWith<_$WeatherConditionModelImpl>
