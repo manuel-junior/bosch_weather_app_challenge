@@ -16,6 +16,7 @@ class HomePageContentNotifier extends _$HomePageContentNotifier {
   Future<void> loadWeatherData() async {
     try {
       final weatherData =
+          // ignore: avoid_manual_providers_as_generated_provider_dependency
           await ref.read(weatherRepositoryProvider).fetchWeather();
       final daily = weatherData.daily;
       final dailyUnits = weatherData.dailyUnits;

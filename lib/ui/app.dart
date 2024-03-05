@@ -10,14 +10,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (_, ref, widget) {
-      final colors = ref.watch(colorsNotifierProvider).value;
+      final colors = ref.watch(colorsNotifierProvider);
 
       return MaterialApp(
         title: 'Weather App',
         theme: ThemeData(
           appBarTheme: AppBarTheme(
             elevation: 0.0,
-            backgroundColor: colors!.background,
+            backgroundColor: colors.background,
             titleTextStyle: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,

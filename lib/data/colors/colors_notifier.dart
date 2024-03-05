@@ -8,18 +8,20 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'colors_notifier.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ColorsNotifier extends _$ColorsNotifier {
   @override
-  Future<ColorsModel> build() async {
+  ColorsModel build() => ColorsModel.fallback();
+
+  Future<void> loadColors() async {
     debugPrint('Colors initialization');
     try {
       final data = await rootBundle.loadString("assets/colors.json");
       final jsonData = json.decode(data);
-      return ColorsModel.fromJson(jsonData);
+      state = ColorsModel.fromJson(jsonData);
     } catch (e) {
       debugPrint('Colors initialization error: $e');
-      return ColorsModel.fallback();
+      state = ColorsModel.fallback();
     }
   }
 }

@@ -7,23 +7,25 @@ import 'package:bosch_weather_app_challenge/ui/ui.dart'
 
 part 'provider.g.dart';
 
-@riverpod
-class Splash extends _$Splash {
+class SplashNotifier extends _$SplashNotifier {
   @override
-  Future<void> build() async {
+  FutureOr<void> build() async => await initialize();
+
+  Future<void> initialize() async {
     debugPrint('App initialization');
+    state = const AsyncLoading();
     try {
-      await ref.watch(colorsNotifierProvider.future);
+      await ref.watch(colorsNotifierProvider.notifier).loadColors();
       await ref
           .watch(homePageContentNotifierProvider.notifier)
           .loadWeatherData();
-    } catch (e) {
+    } catch (e, s) {
       debugPrint('App initialization error: $e');
       if (e.toString().contains("ClientException with SocketException")) {
         throw Exception(
             'Something went wrong, make sure you\'re connected to the internet and try again.');
       }
-      rethrow;
+      state = AsyncError(e, s);
     }
   }
 }

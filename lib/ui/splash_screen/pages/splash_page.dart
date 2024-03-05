@@ -11,7 +11,7 @@ class SplashPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final splashState = ref.watch(splashProvider);
+    final splashState = ref.watch(splashNotifierProvider);
     return splashState.when(
       data: (_) => const App(),
       loading: () => const SplashLoading(),
