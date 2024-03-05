@@ -9,17 +9,28 @@ class DailyWeatherList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherContent = ref.watch(homePageContentNotifierProvider);
-    return weatherContent.isNotEmpty
-        ? ListView.separated(
-            separatorBuilder: (_, index) => const Divider(thickness: 1.5),
-            itemCount: weatherContent.length,
-            itemBuilder: (_, index) {
-              final weather = weatherContent[index];
-              return DailyWeatherCard(weather: weather);
-            },
-          )
-        : const Center(
-            child: Text("No content available."),
-          );
+
+    return RefreshIndicator.adaptive(
+      onRefresh: () async =>
+          ref.read(homePageContentNotifierProvider.notifier).loadWeatherData(),
+      child: weatherContent.isNotEmpty
+          ? ListView.separated(
+              separatorBuilder: (_, index) => const Divider(thickness: 1.5),
+              itemCount: weatherContent.length,
+              itemBuilder: (_, index) {
+                final weather = weatherContent[index];
+                return DailyWeatherCard(weather: weather);
+              },
+            )
+          : const CustomScrollView(
+              slivers: <Widget>[
+                SliverFillRemaining(
+                  child: Center(
+                    child: Text("No content available."),
+                  ),
+                ),
+              ],
+            ),
+    );
   }
 }
