@@ -1,4 +1,4 @@
-# Bosch weather App Challenge
+# Weather App Challenge
 
 ## Description
 
